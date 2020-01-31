@@ -1,5 +1,5 @@
-""" Write a fun web application for comparing and predicting tweets"""
-from flask import Flask
+""" Minimal flask app """
+from flask import Flask, render_template
 
 # pasting it in this way allows us to read in the name of the file
 app = Flask(__name__)
@@ -8,4 +8,9 @@ app = Flask(__name__)
 @app.route('/')
 # add hello function
 def hello():
-  return("Hello World!")
+  return render_template('home.html')
+
+# make a second route
+@app.route("/about")
+def preds():
+    return render_template('about.html')
